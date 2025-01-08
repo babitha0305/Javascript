@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic Calculator</title>
+</head>
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    .calculator {
+      display: inline-block;
+      margin-top: 50px;
+    }
+    input {
+      margin: 10px;
+      padding: 5px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 5px;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    h2 {
+      margin-top: 20px;
+    }
+  </style>
+<body>
+    <div>
+        <h1>Calculator</h1>
+        <input Id="num1" type="number" placeholder="First number">
+        <input Id="num2" type="number" placeholder="Second number">
+        <button onclick="calculate('+')">Add</button>
+        <button onclick="calculate('-')">Substract</button>
+        <button onclick="calculate('*')">Multiply</button>
+        <h2 Id= "result">Result: </h2>
+    </div>
+    <script>
+        function calculate(operator){
+            const num1 =  parseFloat(document.getElementById('num1').value);
+            const num2 =  parseFloat(document.getElementById('num2').value);
+
+        if (isNaN(num1) || isNaN(num2)){
+            document.getElementById('result').innerText = "Error: Invalid input";
+            return;
+        }
+
+        let result;
+        switch(operator){
+            case '+':
+              result = num1 + num2;
+              break;
+            case '-':
+              result = num1 - num2;
+              break;
+            case '*':
+              result = num1 * num2;
+              break;
+            default:
+              result = "Invalid";
+        }
+        document.getElementById('result').innerText = `Result: ${result}`;
+        }
+    </script>
+</body>
+</html>
